@@ -4,7 +4,25 @@ return {
     config = function()
         require'nvim-treesitter.configs'.setup {
           -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-          ensure_installed = { "python", "javascript", "rust", "go", "ruby", "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
+          ensure_installed = {
+            "html",
+            "css",
+            "json",
+            "sql",
+            "bash",
+            "python",
+            "javascript",
+            "rust",
+            "go",
+            "ruby",
+            "c",
+            "lua",
+            "vim",
+            "vimdoc",
+            "query",
+            "markdown",
+            "markdown_inline",
+          },
 
           -- Install parsers synchronously (only applied to `ensure_installed`)
           sync_install = false,
@@ -43,5 +61,11 @@ return {
             additional_vim_regex_highlighting = false,
           },
         }
+
+        vim.filetype.add({
+          extension = {
+            ejs = "html",  -- Use HTML syntax and treesitter for .ejs
+          },
+        })
     end
 }
